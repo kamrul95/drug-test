@@ -5,8 +5,8 @@ import { requireRole } from "@/lib/auth";
 import User, { ROLES } from "@/lib/models/User";
 import DrugTest from "@/lib/models/DrugTest";
 import { fmtDate, ResultBadge } from "@/components/ui";
-import { deleteResult } from "@/app/actions/results.actions";
 import PrintButton from "@/components/PrintButton";
+import DeleteResultButton from "@/components/DeleteResultButton";
 
 export const dynamic = "force-dynamic";
 
@@ -76,11 +76,10 @@ export default async function HistoryPage({ params }) {
                 <td className="px-4 py-2 text-gray-500">{t.notes || "—"}</td>
                 {isSuper && (
                   <td className="whitespace-nowrap px-4 py-2 print:hidden">
-                    <Link href={`/admin/results/${String(t._id)}/edit`} className="text-indigo-600">Edit</Link>
-                    <form action={deleteResult} className="inline">
-                      <input type="hidden" name="id" value={String(t._id)} />
-                      <button className="ml-3 text-red-600">Delete</button>
-                    </form>
+                    <div className="flex items-center gap-3">
+                      <Link href={`/admin/results/${String(t._id)}/edit`} className="font-medium text-[#c45f3f] hover:underline">Edit</Link>
+                      <DeleteResultButton id={String(t._id)} label={`${t.result} result on ${fmtDate(t.testDate)}`} />
+                    </div>
                   </td>
                 )}
               </tr>

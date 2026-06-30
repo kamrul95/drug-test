@@ -50,7 +50,7 @@ export default async function SearchPage({ searchParams }) {
                   <td className="px-4 py-2">{p.mobile || "—"}</td>
                   <td className="px-4 py-2">{p.count}</td>
                   <td className="px-4 py-2 text-right">
-                    <Link href={`/people/${encodeURIComponent(p.nationalId)}/history`} className="btn-outline">View history</Link>
+                    <Link href={`/people/${encodeURIComponent(p.nationalId)}/history`} className="btn-primary">View history</Link>
                   </td>
                 </tr>
               ))}

@@ -6,7 +6,7 @@ import { updateResult } from "@/app/actions/results.actions";
 
 function SubmitBtn() {
   const { pending } = useFormStatus();
-  return <button className="btn-primary mt-4" disabled={pending}>{pending ? "Saving…" : "Save Correction"}</button>;
+  return <button className="btn-primary" disabled={pending}>{pending ? "Saving…" : "Save Correction"}</button>;
 }
 
 export default function EditResultForm({ data, institutions }) {
@@ -32,9 +32,9 @@ export default function EditResultForm({ data, institutions }) {
         </div>
         <div><label className="label">Test Date *</label><input name="testDate" type="date" defaultValue={data.testDate} className="input" required /></div>
         <div className="md:col-span-2"><label className="label">Notes</label><textarea name="notes" rows={2} defaultValue={data.notes} className="input" /></div>
-        <div className="md:col-span-2 flex items-center gap-3">
+        <div className="mt-2 flex items-center gap-2 md:col-span-2">
           <SubmitBtn />
-          <Link href={`/people/${encodeURIComponent(data.nationalId)}/history`} className="text-sm text-gray-500">Cancel</Link>
+          <Link href={`/people/${encodeURIComponent(data.nationalId)}/history`} className="btn-outline">Cancel</Link>
         </div>
       </form>
     </div>

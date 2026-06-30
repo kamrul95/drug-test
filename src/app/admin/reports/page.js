@@ -104,7 +104,7 @@ export default async function ReportsPage({ searchParams }) {
               {tests.map((t) => (
                 <tr key={String(t._id)} className="hover:bg-stone-50/60">
                   <td className="td">{fmtDate(t.testDate)}</td>
-                  <td className="td"><Link className="font-medium text-[#c45f3f] hover:underline" href={`/people/${encodeURIComponent(t.person?.nationalId)}/history`}>{t.person?.name}</Link></td>
+                  <td className="td"><Link className="font-medium text-stone-800 hover:text-[#c45f3f] hover:underline" href={`/people/${encodeURIComponent(t.person?.nationalId)}/history`}>{t.person?.name}</Link></td>
                   <td className="td text-stone-500">{t.person?.nationalId}</td>
                   <td className="td"><ResultBadge result={t.result} /></td>
                   <td className="td">{t.serialNumber}</td>
